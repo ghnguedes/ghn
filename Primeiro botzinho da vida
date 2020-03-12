@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+    <head>
+        <title>BOT</title>
+        <meta charset="utf-8">
+    </head>
+    <body style="background-color:darkslategray;">
+    <h1 style="color:white; font-family:fantasy; font-size:400%; text-align:center;"> BOT </h1>
+        <script>
+            var bot1 = (Math.floor(Math.random() * 3 + 1));
+           
+            var bot2 = (Math.floor(Math.random() * 3 + 1));
+           
+            if (bot1 === 1) {
+                bot1 = "Pedra";
+            } else {
+                if (bot1 === 2) {
+                    bot1 = "Papel";
+                } else {
+                    bot1 = "Tesoura";
+                    }
+                }
+           
+            if (bot2 === 1) {
+                bot2 = "Pedra";
+            } else {
+                if (bot2 === 2) {
+                    bot2 = "Papel";
+                } else {
+                    bot2 = "Tesoura";
+                }
+            }
+           
+            alert ("Bot1 escolheu: " + bot1 +"!");
+            alert ("Bot2 escolheu: " + bot2 +"!");
+           
+            if (bot1 == bot2) {
+                alert ("EMPATE!");
+            } else {
+                if (bot1 == "Pedra" && bot2 == "Tesoura") {
+                    alert ("Bot1 ganhou!");
+                } else {
+                    if (bot1 == "Pedra" && bot2 == "Papel") {
+                        alert ("Bot2 ganhou!");
+                    } else {
+                        if (bot1 == "Papel" && bot2 == "Pedra") {
+                            alert ("Bot1 ganhou!");
+                        } else {
+                            if (bot1 == "Papel" && bot2 == "Tesoura") {
+                                alert ("Bot2 ganhou!");
+                            } else {
+                                if (bot1 == "Tesoura" && bot2 == "Papel") {
+                                    alert ("Bot1 ganhou!");
+                                } else { // bot1 === "Tesoura" && bot2 === "Pedra"
+                                    alert ("Bot2 ganhou!");
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+                   
+        </script>
+    </body>
+</html>
