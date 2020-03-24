@@ -1,0 +1,189 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        
+        
+        <title>Par ou ímpar</title>
+        <meta charset="utf-8">
+        <style>
+            body
+            {
+                background-color: dimgray;
+                text-align: center;
+            }
+            h1
+            { 
+                font-family: fantasy;
+                color: aquamarine;
+                text-align: center;
+                font-size: 100px;
+            }
+            button
+            {
+                height: 60px;
+                width: 80px;
+                margin: 10px;
+                font-family: monospace;
+            }
+            input
+            {
+                text-align: center;
+                margin: 10px;
+                padding: 20px;
+                height: 40px;
+            }
+            div#outputresult
+            { 
+                font-family: monospace;
+                font-size: 30px;
+            }
+   
+        </style>
+        
+        
+    </head>
+    <body>
+        <h1> PAR OU ÍMPAR </h1>
+        
+        <div id="botoes"> 
+            <button onclick="par()" class="btn btn-light"> PAR </button>
+            <button onclick="impar()" class="btn btn-dark"> ÍMPAR </button>
+        </div>
+        <div>
+            <input placeholder="Digite um numero" type="text" id="numero">
+        </div>
+        
+        <div id="outputbot"></div>
+        <div id="outputsoma"></div>
+        <div id="outputresult"></div>
+        <script>
+            
+            
+            function par()
+            {
+                var mensagembot = " ";
+                var mensagemsoma = " ";
+                var mensagemresult = " ";
+                var numero = document.querySelector("#numero").value;
+                numero = parseInt (numero);
+                console.log("numero = " + numero);
+                
+                
+                
+                
+                if (isNaN(numero))
+                {
+                    mensagemresult = "<p class=\"bg-danger\">Erro!</br>Apenas números são permitidos.</p>";
+                    var outputresult = document.querySelector("#outputresult");
+                    outputresult.innerHTML = mensagemresult;
+                }
+                
+                else 
+                {             
+                    var bot = (Math.floor(Math.random() * 10 + 1));
+                    console.log("bot = " + bot);
+
+                    var resultado = numero + bot;
+                    console.log("resultado = " + resultado)   
+               
+                    if (resultado % 2 === 0)
+                    {
+                        mensagembot = "<p class=\"text-warning  \">BOT = " + bot + "</p>";
+                        var outputbot = document.querySelector("#outputbot");
+                        outputbot.innerHTML = mensagembot;
+                        
+                        mensagemsoma = "<p class=\"text-warning  \">Soma = " + resultado + "</p>";
+                        var outputsoma = document.querySelector("#outputsoma");
+                        outputsoma.innerHTML = mensagemsoma;
+                        
+                        mensagemresult = "<p class=\"text-success\">Voce ganhou!</p>"
+                        var outputresult = document.querySelector("#outputresult");
+                        outputresult.innerHTML = mensagemresult;
+                    }
+                    else 
+                    {
+                        mensagembot = "<p class=\"text-warning\">BOT = " + bot + "</p>";
+                        var outputbot = document.querySelector("#outputbot");
+                        outputbot.innerHTML = mensagembot;
+                        
+                        mensagemsoma = "<p class=\"text-warning  \">Soma = " + resultado + "</p>";
+                        var outputsoma = document.querySelector("#outputsoma");
+                        outputsoma.innerHTML = mensagemsoma;
+                        
+                        mensagemresult = "<p class=\"text-danger\">Voce perdeu!</p>"
+                        var outputresult = document.querySelector("#outputresult");
+                        outputresult.innerHTML = mensagemresult;
+                    }
+                
+                }  
+                    
+            }
+            
+            
+            function impar ()
+            {
+                var mensagembot = " ";
+                var mensagemresult = " ";
+                var numero = document.querySelector("#numero").value;
+                numero = (parseInt) (numero); 
+                console.log("numero = " + numero);
+                
+                
+                
+                if (isNaN(numero))
+                {
+                    mensagemresult = "<p class=\"bg-danger\">Erro!</br>Apenas números são permitidos.</p>";
+                    var outputresult = document.querySelector("#outputresult");
+                    outputresult.innerHTML = mensagemresult;
+                }
+                
+                else 
+                    
+                {
+                    var bot = (Math.floor(Math.random() * 10 + 1));
+                    console.log("bot = " + bot);
+
+                    var resultado = numero + bot;
+                    console.log("resultado = " + resultado);
+                
+                    if (resultado % 2 === 0)
+                    {
+                        mensagembot = "<p class=\"text-warning  \">BOT = " + bot + "</p>";
+                        var outputbot = document.querySelector("#outputbot");
+                        outputbot.innerHTML = mensagembot;
+                        
+                        mensagemsoma = "<p class=\"text-warning  \">Soma = " + resultado + "</p>";
+                        var outputsoma = document.querySelector("#outputsoma");
+                        outputsoma.innerHTML = mensagemsoma;
+                        
+                        mensagemresult = "<p class=\"text-danger\"> Voce perdeu!</p>";
+                        var outputresult = document.querySelector("#outputresult");
+                        outputresult.innerHTML = mensagemresult;
+                        
+                    }
+                    else 
+                    {
+                        mensagembot = "<p class=\"text-warning  \">BOT = " + bot + "</p>";
+                        var outputbot = document.querySelector("#outputbot");
+                        outputbot.innerHTML = mensagembot;
+                        
+                        mensagemsoma = "<p class=\"text-warning  \">Soma = " + resultado + "</p>";
+                        var outputsoma = document.querySelector("#outputsoma");
+                        outputsoma.innerHTML = mensagemsoma;
+                        
+                        mensagemresult = "<p class=\"text-success\"> Voce ganhou!</p>";
+                        var outputresult = document.querySelector("#outputresult");
+                        outputresult.innerHTML = mensagemresult;
+                    }
+
+                }
+            }
+        </script>
+
+    </body>
+
+</html>
