@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        
+        <meta charset="utf-8">
+        <title> Pedra Papel Tesoura </title>
+        
+        <style>
+            body
+            {
+                background-color: darkslategrey;
+            }
+            h1
+            {
+                padding: 10px;
+                text-align: center;
+                color: floralwhite;
+                font-family: fantasy;
+            }
+            div#botoes
+            {
+                text-align: center;
+                padding: 10px;
+            }
+            button
+            {
+                height: 50px;
+                width: 80px;
+                margin: 5px;
+            }
+            div#resultbot
+            {
+                text-align: center;
+            }
+            div#resultadofinalissimo
+            {
+                text-align: center;
+                font-size: 65px;
+                color: snow;
+                font-family: fantasy;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 > Pedra, Papel e Tesoura </h1>
+        <div id="botoes">
+        <button class="btn btn-secondary" onclick="iniciarfuncao('pedra')">Pedra</button>
+        <button class="btn btn-light" onclick="iniciarfuncao('papel')">Papel</button>
+        <button class="btn btn-warning" onclick="iniciarfuncao('tesoura')">Tesoura</button>
+        </div>
+            
+        <div class="alert alert-light" id="resultbot"></div>
+        <div id="resultadofinalissimo"></div>
+        
+        
+        <script>
+        
+        
+            function iniciarfuncao(symbol)
+            {
+                var user = symbol;
+
+                var bot = (Math.floor(Math.random() * 3 + 1 ));
+
+                var ppt = conversao(bot);
+
+                var resultadofinal =  execution(user, ppt);
+
+                write(ppt, resultadofinal);
+
+            }
+
+
+            function conversao(bot)
+            {
+                if (bot === 1)
+                {
+                    bot = "pedra";
+                }
+                else if (bot === 2)
+                {
+                    bot = "papel";
+                }
+                else
+                {
+                    bot = "tesoura";
+                }
+                
+                return bot
+            }
+
+
+            function write(bot, resultadofinal)
+            {
+                mensagem = "BOT = " + bot;
+                var outputbot = document.querySelector("#resultbot");
+                outputbot.innerHTML = mensagem;
+
+                var outputresult = document.querySelector("#resultadofinalissimo");
+                outputresult.innerHTML = resultadofinal;
+
+            }
+
+
+            function execution(user, ppt)
+            {
+                var resultado = null;
+
+                if (user == ppt)
+                {
+                    resultado = "EMPATE!";
+                }
+                else if (user == 'pedra' && ppt == 'tesoura')
+                {
+                    resultado = "Você venceu!";
+                }
+                else if (user == 'pedra' && ppt == 'papel')
+                {
+                    resultado = "Você perdeu!";
+                }
+                else if (user == 'papel' && ppt == 'pedra')
+                {
+                    resultado = "Você venceu!";
+                }
+                else if (user == 'papel' && ppt == 'tesoura')
+                {
+                    resultado = "Você perdeu!";
+                }
+                else if (user == 'tesoura' && ppt == 'papel')
+                {
+                    resultado = "Você venceu!";
+                }
+                else
+                {
+                    resultado = "Você perdeu!";
+                }
+
+                return resultado;
+            }
+             
+        </script>
+    </body>
+</html>
